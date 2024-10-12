@@ -1,0 +1,17 @@
+
+> suranagems@0.0.0 build
+> ng build
+
+❯ Building...
+✔ Building...
+Initial chunk files   | Names         |  Raw size | Estimated transfer size
+main-7HAXB4KF.js      | main          | 213.59 kB |                56.67 kB
+polyfills-FFHMD2TL.js | polyfills     |  34.52 kB |                11.28 kB
+styles-5INURTSO.css   | styles        |   0 bytes |                 0 bytes
+
+                      | Initial total | 248.11 kB |                67.95 kB
+
+Application bundle generation complete. [3.225 seconds]
+
+Output location: /home/user/suranagems/dist/suranagems
+
