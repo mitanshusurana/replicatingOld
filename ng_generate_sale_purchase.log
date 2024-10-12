@@ -1,0 +1,4 @@
+CREATE src/app/transaction/sale-purchase/sale-purchase.component.scss (0 bytes)
+CREATE src/app/transaction/sale-purchase/sale-purchase.component.html (28 bytes)
+CREATE src/app/transaction/sale-purchase/sale-purchase.component.spec.ts (635 bytes)
+CREATE src/app/transaction/sale-purchase/sale-purchase.component.ts (262 bytes)

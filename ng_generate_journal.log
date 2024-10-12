@@ -1,0 +1,4 @@
+CREATE src/app/transaction/journal/journal.component.scss (0 bytes)
+CREATE src/app/transaction/journal/journal.component.html (22 bytes)
+CREATE src/app/transaction/journal/journal.component.spec.ts (599 bytes)
+CREATE src/app/transaction/journal/journal.component.ts (239 bytes)

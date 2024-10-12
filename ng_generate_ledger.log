@@ -1,0 +1,4 @@
+CREATE src/app/reports/ledger/ledger.component.scss (0 bytes)
+CREATE src/app/reports/ledger/ledger.component.html (21 bytes)
+CREATE src/app/reports/ledger/ledger.component.spec.ts (592 bytes)
+CREATE src/app/reports/ledger/ledger.component.ts (235 bytes)

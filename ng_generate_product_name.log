@@ -1,0 +1,4 @@
+CREATE src/app/masters/product-name/product-name.component.scss (0 bytes)
+CREATE src/app/masters/product-name/product-name.component.html (27 bytes)
+CREATE src/app/masters/product-name/product-name.component.spec.ts (628 bytes)
+CREATE src/app/masters/product-name/product-name.component.ts (258 bytes)

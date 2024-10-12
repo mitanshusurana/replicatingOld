@@ -1,0 +1,4 @@
+CREATE src/app/masters/main-ledger/main-ledger.component.scss (0 bytes)
+CREATE src/app/masters/main-ledger/main-ledger.component.html (26 bytes)
+CREATE src/app/masters/main-ledger/main-ledger.component.spec.ts (621 bytes)
+CREATE src/app/masters/main-ledger/main-ledger.component.ts (254 bytes)

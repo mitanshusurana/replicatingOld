@@ -1,0 +1,4 @@
+CREATE src/app/transaction/receipt-delivery/receipt-delivery.component.scss (0 bytes)
+CREATE src/app/transaction/receipt-delivery/receipt-delivery.component.html (31 bytes)
+CREATE src/app/transaction/receipt-delivery/receipt-delivery.component.spec.ts (656 bytes)
+CREATE src/app/transaction/receipt-delivery/receipt-delivery.component.ts (274 bytes)

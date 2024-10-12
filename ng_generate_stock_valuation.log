@@ -1,0 +1,4 @@
+CREATE src/app/transaction/stock-valuation/stock-valuation.component.scss (0 bytes)
+CREATE src/app/transaction/stock-valuation/stock-valuation.component.html (30 bytes)
+CREATE src/app/transaction/stock-valuation/stock-valuation.component.spec.ts (649 bytes)
+CREATE src/app/transaction/stock-valuation/stock-valuation.component.ts (270 bytes)
