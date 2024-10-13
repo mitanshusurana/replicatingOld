@@ -35,5 +35,6 @@ export const routes: Routes = [
     { path: 'reports/daybook', component: DaybookComponent },
     { path: 'utility', component: UtilityComponent },
   ]},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
 ];
