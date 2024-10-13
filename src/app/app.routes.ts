@@ -19,6 +19,7 @@ import { DaybookComponent } from './reports/daybook/daybook.component';
 import { UtilityComponent } from './utility/utility.component';
 
 export const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: '', component: NavigationComponent, canActivate: [AuthGuard], children: [
     { path: 'masters/main-ledger', component: MainLedgerComponent },
     { path: 'masters/sub-ledger', component: SubLedgerComponent },
@@ -35,6 +36,5 @@ export const routes: Routes = [
     { path: 'reports/daybook', component: DaybookComponent },
     { path: 'utility', component: UtilityComponent },
   ]},
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
 ];
