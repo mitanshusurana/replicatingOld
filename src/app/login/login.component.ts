@@ -18,6 +18,9 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
+    console.log('Login button clicked');
+    console.log('Username:', this.username);
+    console.log('Password:', this.password);
     if (this.authService.login(this.username, this.password)) {
       this.router.navigate(['/']);
     } else {
