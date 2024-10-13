@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators ,FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sale-purchase',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule],
   templateUrl: './sale-purchase.component.html',
   styleUrls: ['./sale-purchase.component.scss']
 })
-
-
-
 export class SalePurchaseComponent implements OnInit {
   transactionForm: FormGroup;
   ledgerNames: string[] = []; // This will hold the fetched ledger names
@@ -27,6 +25,7 @@ export class SalePurchaseComponent implements OnInit {
       touch: [99.5, Validators.required],
       pure: [{ value: 0, disabled: true }],
       rate: [0],
+      amount: [0], // Fixed typo from 'ammount' to 'amount'
       cash: [0],
       comments: ['']
     });
@@ -45,12 +44,15 @@ export class SalePurchaseComponent implements OnInit {
   }
 
   onChanges(): void {
+    // Update pure value and amount when netWeight changes
     this.transactionForm.get('netWeight')?.valueChanges.subscribe(value => {
       const touch = this.transactionForm.get('touch')?.value;
       const pure = value * touch / 100; // Calculate pure value
       this.transactionForm.patchValue({ pure: pure.toFixed(2) });
+      this.updateAmount(); // Call updateAmount method
     });
 
+    // Update touch value based on selected stockName
     this.transactionForm.get('stockName')?.valueChanges.subscribe(value => {
       switch (value) {
         case 'bar':
@@ -62,7 +64,23 @@ export class SalePurchaseComponent implements OnInit {
         default:
           this.transactionForm.patchValue({ touch: 100 });
       }
+      this.transactionForm.get('netWeight')?.updateValueAndValidity(); // Ensure netWeight re-evaluates
+      const netWeight = this.transactionForm.get('netWeight')?.value;
+      this.transactionForm.patchValue({ pure: (netWeight * this.transactionForm.get('touch')?.value / 100).toFixed(2) });
+      this.updateAmount(); // Call updateAmount method
     });
+
+    // Update amount when rate changes
+    this.transactionForm.get('rate')?.valueChanges.subscribe(() => {
+      this.updateAmount(); // Call updateAmount method
+    });
+  }
+
+  private updateAmount(): void {
+    const pure = parseFloat(this.transactionForm.get('pure')?.value);
+    const rate = this.transactionForm.get('rate')?.value;
+    const amount = pure * rate; // Calculate amount
+    this.transactionForm.patchValue({ amount: amount.toFixed(2) }); // Update the amount field
   }
 
   submit(): void {

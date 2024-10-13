@@ -1,12 +1,13 @@
-import { Component ,HostBinding, HostListener } from '@angular/core';
+import { Component, HostBinding, HostListener } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { SalePurchaseComponent } from '../transaction/sale-purchase/sale-purchase.component';
 
 @Component({
   selector: 'app-navigation',
-  template: '<router-outlet></router-outlet>',
+  templateUrl: './navigation.component.html', // Use the external template file
+  styleUrls: ['./navigation.component.scss'], // Corrected to styleUrls
   standalone: true,
-  imports: [],
-  templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.scss'
+  imports: [RouterOutlet,SalePurchaseComponent],
 })
 export class NavigationComponent {
   @HostBinding('class.active') isOpen = false;
@@ -14,5 +15,4 @@ export class NavigationComponent {
   @HostListener('click') toggleOpen() {
     this.isOpen = !this.isOpen;
   }
-
 }
