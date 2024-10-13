@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
@@ -26,30 +26,12 @@ import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    NavigationComponent,
-    MainLedgerComponent,
-    SubLedgerComponent,
-    ProductNameComponent,
-    OpeningBalanceComponent,
-    SalePurchaseComponent,
-    ReceiptDeliveryComponent,
-    JournalComponent,
-    StockValuationComponent,
-    BookingCancellationComponent,
-    LedgerComponent,
-    PartyBalanceComponent,
-    StockComponent,
-    DaybookComponent,
-    UtilityComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,ReactiveFormsModule,
     RouterModule.forRoot(routes),
     FormsModule
   ],
   providers: [AuthGuard, AuthService],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }

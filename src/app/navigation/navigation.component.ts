@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,HostBinding, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -9,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
+  @HostBinding('class.active') isOpen = false;
+
+  @HostListener('click') toggleOpen() {
+    this.isOpen = !this.isOpen;
+  }
 
 }

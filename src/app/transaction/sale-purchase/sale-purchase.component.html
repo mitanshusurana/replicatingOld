@@ -1,1 +1,49 @@
-<p>sale-purchase works!</p>
+<form [formGroup]="transactionForm" (ngSubmit)="submit()">
+    <label>Date:</label>
+    <input type="date" formControlName="date" />
+  
+    <label>Transaction:</label>
+    <select formControlName="transaction">
+      <option value="" disabled>Select Transaction Type</option>
+      <option value="purchase">Purchase</option>
+      <option value="sales">Sales</option>
+      <option value="cash received">Cash Received</option>
+      <option value="cash given">Cash Given</option>
+      <option value="metal received">Metal Received</option>
+      <option value="metal given">Metal Given</option>
+      <option value="ratecut purchase">Ratecut Purchase</option>
+      <option value="ratecut sales">Ratecut Sales</option>
+    </select>
+  
+    <label>Ledger Name:</label>
+    <select formControlName="ledgerName">
+      <option value="" disabled>Select Ledger</option>
+      <option *ngFor="let name of ledgerNames" [value]="name">{{ name }}</option>
+    </select>
+  
+    <label>Stock Name:</label>
+    <select formControlName="stockName">
+      <option value="" disabled>Select Stock</option>
+      <option *ngFor="let name of stockNames" [value]="name">{{ name }}</option>
+    </select>
+  
+    <label>Net Weight:</label>
+    <input type="number" formControlName="netWeight" step="0.01" />
+  
+    <label>Touch:</label>
+    <input type="number" formControlName="touch" readonly />
+  
+    <label>Pure:</label>
+    <input type="number" formControlName="pure" readonly />
+  
+    <label>Rate:</label>
+    <input type="number" formControlName="rate" />
+  
+    <label>Cash:</label>
+    <input type="number" formControlName="cash" />
+  
+    <label>Comments:</label>
+    <input type="text" formControlName="comments" />
+  
+    <button type="submit">Submit</button>
+  </form>
