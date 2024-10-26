@@ -28,13 +28,27 @@ import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    
-    // No need to declare standalone components here
   ],
   imports: [
-    AppComponent,
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule.forRoot(routes)]})
+    RouterModule.forRoot(routes),
+    // If any standalone components are used directly, they can be imported here
+    MainLedgerComponent,
+    SubLedgerComponent,
+    ProductNameComponent,
+    OpeningBalanceComponent,
+    LedgerComponent,
+    PartyBalanceComponent,
+    StockComponent,
+    BookingCancellationComponent,
+    JournalComponent,
+    SalePurchaseComponent,
+    StockValuationComponent,
+    UtilityComponent
+  ],
+  providers: [AuthGuard, AuthService], // Add your services here
+  bootstrap: []
+})
 export class AppModule { }

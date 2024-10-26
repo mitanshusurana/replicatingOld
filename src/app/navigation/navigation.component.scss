@@ -38,3 +38,14 @@ ul ul {
 li:hover > ul {
   display: block;
 }
+
+body {
+  font-size: 16px;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  body {
+      font-size: 14px;
+  }
+}

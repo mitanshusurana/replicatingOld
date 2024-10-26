@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-sale-purchase',
@@ -12,12 +12,16 @@ import { CommonModule } from '@angular/common';
 })
 export class SalePurchaseComponent implements OnInit {
   transactionForm: FormGroup;
-  ledgerNames: string[] = []; // This will hold the fetched ledger names
+  
+  ledgerNames: string[] = ["99ba",
+    "sdd","kmt"  ]; // This will hold the fetched ledger names
   stockNames: string[] = ['bar', 'pcs', 'ft', 'kachha', 'maal'];
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0]; 
     this.transactionForm = this.fb.group({
-      date: [new Date(), Validators.required],
+      date: [formattedDate, Validators.required],
       transaction: ['', Validators.required],
       ledgerName: ['', Validators.required],
       stockName: ['', Validators.required],
@@ -29,6 +33,8 @@ export class SalePurchaseComponent implements OnInit {
       cash: [0],
       comments: ['']
     });
+    
+ 
   }
 
   ngOnInit(): void {
